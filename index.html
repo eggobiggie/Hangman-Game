@@ -6,7 +6,6 @@
   <link rel="stylesheet" href="./assets/css/reset.css">
   <link rel="stylesheet" href="./assets/css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Patrick+Hand" rel="stylesheet">
-  <script src="./assets/javascript/game.js"></script>
   <title>Hangman Game</title>
 </head>
 <body>
@@ -21,10 +20,15 @@
       <div class="gridText">
         <p>Press Any Key to Begin!</p>
         <p>Wins</p>
+        <p id="total-wins">0</p>
         <p>Current Word</p>
+        <p id="current-word"></p>
         <p>Number of Guesses Remaining</p>
+        <p id="guesses-remaining"></p>
         <p>Letters Already Guessed</p>
+        <p id="already-guessed"></p>
       </div>
     </div>
+<script src="./assets/javascript/game.js"></script>
 </body>
 </html>
