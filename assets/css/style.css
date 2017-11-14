@@ -1,0 +1,50 @@
+body {
+  background-color: #F3EE10;
+}
+
+#bobLogo {
+  width: 700px;
+  height: 150px;
+  margin-top: 50px;
+  margin-left: 420px;
+}
+
+#hangmanTitle {
+  margin-top: -10px;
+  margin-left: 625px;
+  font-family: 'Berkshire Swash', cursive;
+  font-size: 40px;
+}
+
+.fullGrid {
+  height: 600px;
+  width: 450px;
+  margin-top: 80px;
+  margin-bottom: 100px;
+  border: 5px dotted #000;
+}
+
+.leftGrid {
+  float: left;
+  margin-left: 300px;
+}
+
+#bobFamily {
+  height: 350px;
+  width: 260px;
+  margin-top: 10px;
+  margin-left: 80px;
+}
+
+.rightGrid {
+  float: left;
+  border-left: none;
+  margin-left: 5px;
+}
+
+.gridText {
+  font-family: 'Patrick Hand', cursive;
+  text-align: center;
+  font-size: 25px;
+  line-height: 80px;
+}
