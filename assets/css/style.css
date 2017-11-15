@@ -16,10 +16,19 @@ body {
   font-size: 40px;
 }
 
+#resultTextChange {
+  font-family: 'Patrick Hand', cursive;
+  text-align: center;
+  padding: 0;
+  margin-top: 60px;
+  margin-left: 220px;
+  font-size: 30px;
+}
+
 .fullGrid {
   height: 750px;
   width: 450px;
-  margin-top: 80px;
+  margin-top: 20px;
   margin-bottom: 100px;
   border: 5px dotted #000;
 }
@@ -34,6 +43,15 @@ body {
   width: 260px;
   margin-top: 10px;
   margin-left: 80px;
+}
+
+#tinaSad {
+  width: 350px;
+  margin-left: 50px;
+  margin-top: -800px;
+  padding-bottom: 100px;
+  visibility: hidden;
+  z-index: 1;
 }
 
 .rightGrid {
