@@ -2,6 +2,7 @@
 //Beginning global variables
 var wins = 0;
 var guessesRemaining = 12;
+var gameFinished = false;
 
 //Computer Choice Code:
 var wordArray = ["linda", "beefsquatch", "fischoeder", "louise", "marshmallow", "frond", "mudflap"];
@@ -14,15 +15,18 @@ var alreadyGuessed = [];
 
 guessesRemainingFunction();
 
+
+//keypress function to start things off
   document.onkeypress = function(event) {
     var userGuess = event.key;
     wordCheck(userGuess);
     drawPlaySpace();
   };
 
+//function for checking the guesses against words, includes what happens for a win or a loss
 function wordCheck(userGuess) {
-  if (guessesRemaining === 0) {
-    loserFunction();
+  if (gameFinished === true) {
+    resetFunction();
     return;
   }
   var doesItMatch = false;
@@ -40,10 +44,8 @@ function wordCheck(userGuess) {
       }
       if (didWeWin === true) {
         winnerFunction();
-        //return;
+        return;
       }
-
-
     for (i = 0; i < alreadyGuessed.length; i++) {
       if (userGuess === alreadyGuessed[i]) {
         return;
@@ -55,12 +57,15 @@ function wordCheck(userGuess) {
      alreadyGuessed.push(userGuess);
      alreadyGuessedFunction();
    }
+   if (guessesRemaining === 0) {
+     loserFunction();
+     return;
+   }
   }
 
   function alreadyGuessedFunction() {
     document.getElementById("already-guessed").innerHTML = alreadyGuessed;
   }
-
 
   function guessesRemainingFunction() {
     document.getElementById("guesses-remaining").innerHTML = guessesRemaining;
@@ -68,6 +73,7 @@ function wordCheck(userGuess) {
 
 document.getElementById("current-word").innerHTML = playSpace;
 
+//functions for creating underscores and spaces between the underscores
 function drawBlanks() {
   var underscoreArray = [];
   for (i = 0; i < wordChoice.length; i++) {
@@ -86,11 +92,9 @@ function drawPlaySpace() {
 
  drawPlaySpace();
 
+
+//functions for a win, a loss, and/or a reset
  function winnerFunction() {
-   //need to add style so that the margin is changed for each, need to add each image and make them the right spot
-   //need to make each image visible as well.
-   //ADD IMAGES TO HTML
-   //also need to make it so that the win-count goes up
    switch (wordChoice) {
      case "linda":
      document.getElementById("bobFamily").style.visibility = "hidden";
@@ -128,6 +132,13 @@ function drawPlaySpace() {
      document.getElementById("resultTextChange").innerHTML = "Oh, Mudflap? Uh that was my grandmother's name. It's Mudflap!";
      break;
    }
+   wins++;
+   winsFunction();
+ }
+
+ function winsFunction() {
+   document.getElementById("total-wins").innerHTML = wins;
+   gameFinished = true;
  }
 
  function loserFunction() {
@@ -135,9 +146,26 @@ function drawPlaySpace() {
     document.getElementById("bobFamily").style.visibility = "hidden";
     document.getElementById("tinaSad").style.visibility = "visible";
     document.getElementById("resultTextChange").innerHTML = "You Lost! Try again!";
-    guessesRemaining = 12;
-    wordChoice = wordArray[Math.floor(Math.random() * wordArray.length)];
-    console.log(wordChoice);
-    playSpace = drawBlanks();
-    };
+    gameFinished = true;
+    }
+ }
+
+ function resetFunction() {
+   document.getElementById("bobFamily").style.visibility = "visible";
+   document.getElementById("tinaSad").style.visibility = "hidden";
+   document.getElementById("resultTextChange").innerHTML = "";
+   document.getElementById("linda").style.visibility = "hidden";
+   document.getElementById("beefsquatch").style.visibility = "hidden";
+   document.getElementById("fischoeder").style.visibility = "hidden";
+   document.getElementById("louise").style.visibility = "hidden";
+   document.getElementById("marshmallow").style.visibility = "hidden";
+   document.getElementById("frond").style.visibility = "hidden";
+   document.getElementById("mudflap").style.visibility = "hidden";
+   alreadyGuessed.length = 0;
+   alreadyGuessedFunction();
+   guessesRemaining = 12;
+   wordChoice = wordArray[Math.floor(Math.random() * wordArray.length)];
+   console.log(wordChoice);
+   playSpace = drawBlanks();
+   gameFinished = false;
  }
