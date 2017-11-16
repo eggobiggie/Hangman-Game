@@ -1,4 +1,3 @@
-
 //Beginning global variables
 var wins = 0;
 var guessesRemaining = 12;
@@ -11,14 +10,12 @@ console.log(wordChoice);
 
 var alreadyGuessed = [];
 
-//THINGS NEEDED: Verification of alphabet and TOLOWERCASE.
-
 guessesRemainingFunction();
-
 
 //keypress function to start things off
   document.onkeypress = function(event) {
     var userGuess = event.key;
+    userGuess = userGuess.toLowerCase();
     wordCheck(userGuess);
     drawPlaySpace();
   };
@@ -27,6 +24,17 @@ guessesRemainingFunction();
 function wordCheck(userGuess) {
   if (gameFinished === true) {
     resetFunction();
+    return;
+  }
+  var isItLetter = false;
+  var alphabetArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p,", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+  for (i = 0; i < alphabetArray.length; i++) {
+    if (userGuess === alphabetArray[i]) {
+      isItLetter = true;
+    }
+  }
+  if (isItLetter === false) {
+    console.log("what");
     return;
   }
   var doesItMatch = false;
