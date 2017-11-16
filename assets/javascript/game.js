@@ -164,6 +164,7 @@ function drawPlaySpace() {
    alreadyGuessed.length = 0;
    alreadyGuessedFunction();
    guessesRemaining = 12;
+   guessesRemainingFunction();
    wordChoice = wordArray[Math.floor(Math.random() * wordArray.length)];
    console.log(wordChoice);
    playSpace = drawBlanks();
