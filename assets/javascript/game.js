@@ -102,13 +102,21 @@ function drawPlaySpace() {
 
 //Audio Variables for Win/Lose/Reset functions
  var audio1 = new Audio("./assets/music/killtheturkey1.wav");
+
  var audio2 = new Audio("./assets/music/yougotbeefsquatched.wav");
+
  var audio3 = new Audio("./assets/music/nicethingsarenice.mp3");
+
  var audio4 = new Audio("./assets/music/gettingoutofpe.mp3");
+
  var audio5 = new Audio("./assets/music/cantgetenoughofyourwomanstuff.mp3");
+
  var audio6 = new Audio("./assets/music/dontyoulovecottoncandy.mp3");
+
  var audio7 = new Audio("./assets/music/badgirls.mp3");
- var audio8 = new Audio("./assets/music/madpooper.mp3")
+
+ var audio8 = new Audio("./assets/music/madpooper.mp3");
+
 
 //functions for a win, a loss, and/or a reset
  function winnerFunction() {
@@ -118,35 +126,41 @@ function drawPlaySpace() {
      document.getElementById("linda").style.visibility = "visible";
      document.getElementById("resultTextChange").innerHTML = "Alriiiiight! It's Linda!";
      audio1.play();
+     audio1.volume = 0.05;
      break;
      case "beefsquatch":
      document.getElementById("bobFamily").style.visibility = "hidden";
      document.getElementById("beefsquatch").style.visibility = "visible";
      document.getElementById("resultTextChange").innerHTML = "THIS IS ME NOW! It's Beefsquatch!";
      audio2.play();
+     audio2.volume = 0.05;
      break;
      case "fischoeder":
      document.getElementById("bobFamily").style.visibility = "hidden";
      document.getElementById("fischoeder").style.visibility = "visible";
      document.getElementById("resultTextChange").innerHTML = "You can work in my coal mine! It's Calvin Fischoeder!";
      audio3.play();
+     audio3.volume = 0.05;
      break;
      case "louise":
      document.getElementById("bobFamily").style.visibility = "hidden";
      document.getElementById("louise").style.visibility = "visible";
      document.getElementById("resultTextChange").innerHTML = "Enough with Canada! It's Louise!";
      audio4.play();
+     audio4.volume = 0.05;
      break;
      case "marshmallow":
      document.getElementById("bobFamily").style.visibility = "hidden";
      document.getElementById("marshmallow").style.visibility = "visible";
      document.getElementById("resultTextChange").innerHTML = "If you show me a sweet potato pie, I am on top of it. It's Marshmallow!";
      audio5.play();
+     audio5.volume = 0.05;
      break;
      case "frond":
      document.getElementById("bobFamily").style.visibility = "hidden";
      document.getElementById("frond").style.visibility = "visible";
      document.getElementById("resultTextChange").innerHTML = "Don't throw Repressed Memory Emily! It's Mr. Frond!";
+     audio6.volume = 0.05;
      audio6.play();
      break;
      case "mudflap":
@@ -154,6 +168,7 @@ function drawPlaySpace() {
      document.getElementById("mudflap").style.visibility = "visible";
      document.getElementById("resultTextChange").innerHTML = "Oh, Mudflap? Uh that was my grandmother's name. It's Mudflap!";
      audio7.play();
+     audio7.volume = 0.05;
      break;
    }
    wins++;
@@ -171,6 +186,7 @@ function drawPlaySpace() {
     document.getElementById("tinaSad").style.visibility = "visible";
     document.getElementById("resultTextChange").innerHTML = "You Lost! Try again!";
     audio8.play();
+    audio8.volume = 0.05;
     gameFinished = true;
     }
  }
