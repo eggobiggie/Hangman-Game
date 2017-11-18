@@ -1,9 +1,9 @@
-//Beginning global variables
+//Initial Variables
 var wins = 0;
 var guessesRemaining = 12;
 var gameFinished = false;
 
-//Computer Choice Code:
+//Computer Choice Array:
 var wordArray = ["linda", "beefsquatch", "fischoeder", "louise", "marshmallow", "frond", "mudflap"];
 var wordChoice = wordArray[Math.floor(Math.random() * wordArray.length)];
 console.log(wordChoice);
@@ -20,14 +20,14 @@ guessesRemainingFunction();
     drawPlaySpace();
   };
 
-//function for checking the guesses against words, includes what happens for a win or a loss
+//function for checking the guesses against words, includes what happens for a win or a loss as well as letter verify
 function wordCheck(userGuess) {
   if (gameFinished === true) {
     resetFunction();
     return;
   }
   var isItLetter = false;
-  var alphabetArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p,", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+  var alphabetArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
   for (i = 0; i < alphabetArray.length; i++) {
     if (userGuess === alphabetArray[i]) {
       isItLetter = true;
@@ -79,7 +79,7 @@ function wordCheck(userGuess) {
     document.getElementById("guesses-remaining").innerHTML = guessesRemaining;
   }
 
-document.getElementById("current-word").innerHTML = playSpace;
+  document.getElementById("current-word").innerHTML = playSpace;
 
 //functions for creating underscores and spaces between the underscores
 function drawBlanks() {
@@ -100,6 +100,15 @@ function drawPlaySpace() {
 
  drawPlaySpace();
 
+//Audio Variables for Win/Lose/Reset functions
+ var audio1 = new Audio("./assets/music/killtheturkey1.wav");
+ var audio2 = new Audio("./assets/music/yougotbeefsquatched.wav");
+ var audio3 = new Audio("./assets/music/nicethingsarenice.mp3");
+ var audio4 = new Audio("./assets/music/gettingoutofpe.mp3");
+ var audio5 = new Audio("./assets/music/cantgetenoughofyourwomanstuff.mp3");
+ var audio6 = new Audio("./assets/music/dontyoulovecottoncandy.mp3");
+ var audio7 = new Audio("./assets/music/badgirls.mp3");
+ var audio8 = new Audio("./assets/music/madpooper.mp3")
 
 //functions for a win, a loss, and/or a reset
  function winnerFunction() {
@@ -108,36 +117,43 @@ function drawPlaySpace() {
      document.getElementById("bobFamily").style.visibility = "hidden";
      document.getElementById("linda").style.visibility = "visible";
      document.getElementById("resultTextChange").innerHTML = "Alriiiiight! It's Linda!";
+     audio1.play();
      break;
      case "beefsquatch":
      document.getElementById("bobFamily").style.visibility = "hidden";
      document.getElementById("beefsquatch").style.visibility = "visible";
      document.getElementById("resultTextChange").innerHTML = "THIS IS ME NOW! It's Beefsquatch!";
+     audio2.play();
      break;
      case "fischoeder":
      document.getElementById("bobFamily").style.visibility = "hidden";
      document.getElementById("fischoeder").style.visibility = "visible";
      document.getElementById("resultTextChange").innerHTML = "You can work in my coal mine! It's Calvin Fischoeder!";
+     audio3.play();
      break;
      case "louise":
      document.getElementById("bobFamily").style.visibility = "hidden";
      document.getElementById("louise").style.visibility = "visible";
      document.getElementById("resultTextChange").innerHTML = "Enough with Canada! It's Louise!";
+     audio4.play();
      break;
      case "marshmallow":
      document.getElementById("bobFamily").style.visibility = "hidden";
      document.getElementById("marshmallow").style.visibility = "visible";
      document.getElementById("resultTextChange").innerHTML = "If you show me a sweet potato pie, I am on top of it. It's Marshmallow!";
+     audio5.play();
      break;
      case "frond":
      document.getElementById("bobFamily").style.visibility = "hidden";
      document.getElementById("frond").style.visibility = "visible";
      document.getElementById("resultTextChange").innerHTML = "Don't throw Repressed Memory Emily! It's Mr. Frond!";
+     audio6.play();
      break;
      case "mudflap":
      document.getElementById("bobFamily").style.visibility = "hidden";
      document.getElementById("mudflap").style.visibility = "visible";
      document.getElementById("resultTextChange").innerHTML = "Oh, Mudflap? Uh that was my grandmother's name. It's Mudflap!";
+     audio7.play();
      break;
    }
    wins++;
@@ -154,6 +170,7 @@ function drawPlaySpace() {
     document.getElementById("bobFamily").style.visibility = "hidden";
     document.getElementById("tinaSad").style.visibility = "visible";
     document.getElementById("resultTextChange").innerHTML = "You Lost! Try again!";
+    audio8.play();
     gameFinished = true;
     }
  }
@@ -177,4 +194,20 @@ function drawPlaySpace() {
    console.log(wordChoice);
    playSpace = drawBlanks();
    gameFinished = false;
+   audio1.pause();
+   audio1.currentTime = 0;
+   audio2.pause();
+   audio2.currentTime = 0;
+   audio3.pause();
+   audio3.currentTime = 0;
+   audio4.pause();
+   audio4.currentTime = 0;
+   audio5.pause();
+   audio5.currentTime = 0;
+   audio6.pause();
+   audio6.currentTime = 0;
+   audio7.pause();
+   audio7.currentTime = 0;
+   audio8.pause();
+   audio8.currentTime = 0;
  }
