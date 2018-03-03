@@ -13,3 +13,5 @@
 * If the user is incorrect, a different image will appear, informing the user that they lost the round.
 
 * The game keeps track of how many rounds the user has won in a given session.
+
+* Play the game [here](https://eggobiggie.github.io/Hangman-Game/)
